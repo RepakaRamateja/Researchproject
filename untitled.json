@@ -1,0 +1,55 @@
+{
+  "nodes": [
+    {"id": "Myriel", "group": 0,"name": "A","color":"red"},
+    {"id": "Napoleon", "group": 10,"name":"B","color":"blue"},
+    {"id": "Mlle.Baptistine", "group": 6,"name":"C","color":"blue"},
+    {"id": "Mme.Magloire", "group": 7,"name":"D","color":"blue"},
+    {"id": "CountessdeLo", "group": 8,"name":"E","color":"red"},
+    {"id": "Ramteja", "group": 8,"name":"E","color":"red"},
+
+
+    {"id": "Labarre", "group": 2},
+    {"id": "Valjean", "group": 2},
+    {"id": "Mme.deR", "group": 2},
+    {"id": "Isabeau", "group": 2},
+    {"id": "Gervais", "group": 2},
+    {"id": "Bamatabois","group": 2},
+
+
+    {"id": "Marguerite", "group": 3},
+    {"id": "Tholomyes", "group": 3},
+    {"id": "Listolier", "group": 3},
+    {"id": "Fameuil", "group": 3},
+    {"id": "Blacheville", "group": 3},
+    {"id": "Dahlia", "group": 3}
+  ],
+  "links": [
+    {"source": "Myriel", "target": "CountessdeLo", "value": 1},
+    {"source": "Myriel", "target": "Mlle.Baptistine", "value": 1},
+    {"source": "Myriel", "target": "Napoleon", "value": 1},
+    {"source": "Myriel", "target": "Mme.Magloire", "value": 1},
+    {"source": "Myriel", "target": "Mme.Magloire", "value": 1},
+    {"source": "Myriel", "target": "Ramteja", "value": 1},
+
+
+    {"source": "Labarre", "target": "Valjean", "value": 1},
+    {"source": "Labarre", "target": "Mlle.Baptistine", "value": 1},
+    {"source": "Labarre", "target": "Mme.deR", "value": 1},
+    {"source": "Labarre", "target": "Isabeau", "value": 1},
+    {"source": "Labarre", "target": "Gervais", "value": 1},
+    {"source": "Labarre", "target": "Bamatabois", "value": 1},
+
+
+    {"source": "Marguerite", "target": "Tholomyes", "value": 1},
+    {"source": "Marguerite", "target": "Listolier", "value": 1},
+    {"source": "Marguerite", "target": "Fameuil", "value": 1},
+    {"source": "Marguerite", "target": "Blacheville", "value": 1},
+    {"source": "Marguerite", "target": "Dahlia", "value": 1},
+    {"source": "Marguerite", "target": "Bamatabois", "value": 1}
+
+
+
+
+
+  ]
+}

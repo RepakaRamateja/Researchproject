@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    {"id": "Myriel", "group": 0,"name": "A","color":"red","info":"badnode","Mainnode":"1"},
+    {"id": "Napoleon", "group": 10,"name":"B","color":"blue","info":"goodnode","Mainnode":"0","reward":{"Red_Red": 4, "Red_Undetermined":2, "Blue_Red": -3, "Blue_Undetermined": 6}},
+    {"id": "Mlle.Baptistine", "group": 6,"name":"C","color":"blue","info":"goodnode","Mainnode":"0","reward":{"Red_Red": 4, "Red_Undetermined":2, "Blue_Red": -3, "Blue_Undetermined": 6}},
+    {"id": "Mme.Magloire", "group": 7,"name":"D","color":"blue","info":"goodnode","Mainnode":"0","reward":{"Red_Red": 4, "Red_Undetermined":2, "Blue_Red": -3, "Blue_Undetermined": 6}},
+    {"id": "CountessdeLo", "group": 8,"name":"E","color":"red","info":"badnode","Mainnode":"0","reward":{"Red_Red": 4, "Red_Undetermined":2, "Blue_Red": -3, "Blue_Undetermined": 6}}
+  ],
+  "links": [
+    {"source": "Myriel", "target": "CountessdeLo", "value": 1},
+    {"source": "Myriel", "target": "Mlle.Baptistine", "value": 1},
+    {"source": "Myriel", "target": "Napoleon", "value": 1},
+    {"source": "Myriel", "target": "Mme.Magloire", "value": 1},
+    {"source": "Napoleon", "target": "Mme.Magloire", "value": 1},
+    {"source": "Napoleon", "target": "Mlle.Baptistine", "value": 1},
+    {"source": "Mlle.Baptistine", "target": "Mme.Magloire", "value": 1}     
+  ]
+}

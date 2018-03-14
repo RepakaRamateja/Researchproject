@@ -1,0 +1,407 @@
+<html>
+<head>
+<style>
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.links line 
+{
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+div.tooltip {
+                position: absolute;
+                text-align: center;
+                width: 190px;
+                height: 150px;
+                padding: 8px;
+                font: 10px sans-serif;
+                background: #F8F8FF;
+                border: solid 1px #aaa;
+                border-radius: 8px;
+                pointer-events: auto;
+            }
+
+.nodes circle 
+{
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+/* removing this for video controls
+#myVideo { 
+    position: fixed;
+    min-width: 60%;
+    min-height: 75%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover; 
+}*/
+
+</style>
+<script type="text/javascript">
+
+var arr =[];
+
+function closepop()
+{
+div.transition()
+  .duration(300)
+  .style("opacity", 1e-6); 
+}
+
+/* commented code which is for the timer logic
+var seconds_left = 45;
+var interval = setInterval(function() {
+    document.getElementById('timer_div').innerHTML = --seconds_left;
+
+    if (seconds_left <= 0)
+    {
+       document.getElementById('timer_div').innerHTML = "You are Ready!";
+       clearInterval(interval);
+    }
+}, 1000);*/
+
+function test(x)
+{
+	var x= x+" "+'blue';  //to handle blue radio button
+
+	var result=arr.includes(x);
+
+	var y=x+" "+'red';   //to handle red radio button
+
+	var yresult=arr.includes(y);
+
+	if(result==true)
+	{
+	  document.getElementById("blue").checked =true;
+	} 
+
+	else if(yresult==true)
+	{
+	  document.getElementById("red").checked = true;
+	}
+	
+}
+
+ function disable(x)
+ {
+ 	var y=x+" "+'red';
+
+    var yresult=arr.includes(y);
+
+ 	if(yresult)
+ 	{
+ 		arr.pop(y);
+ 		arr.push(x+" "+'blue');
+ 	}
+
+ 	else
+ 	{
+ 		arr.push(x+" "+'blue');
+ 	}
+    
+  if(document.getElementById('blue').checked) //condition to check if blue radio button is checked or not
+  {	
+  document.getElementById("red").checked = false;
+  }
+ }
+
+function disable1(x)
+ {
+ 	var x= x+" "+'blue'; 
+ 	if(arr.includes(x))
+ 	{
+         arr.pop(x);
+ 		arr.push(x+" "+'red');
+ 	}
+ 	else
+ 	{
+       arr.push(x+" "+'red');
+ 	}
+
+if(document.getElementById('red').checked) //condition to check if red radio button is checked or not
+  {
+  document.getElementById("blue").checked = false;
+  }
+}
+</script>
+</head>
+<body>
+<table>
+<table border="1" width="100%" height="100%">
+<tr>
+<td align="center" height="10" bgcolor="#A9A9A9">Your Network</td>
+<td align="center" height="10" bgcolor="#A9A9A9">Round 1 of n</td>
+</tr>
+<tr>
+<td width="50%"> You are     in this network
+</br>
+</br>
+<center><img src="neighbour1.png" height="35" width="50%"/></center>
+<center><img src="neighbour2.png" height="35" width="50%"/></center>
+</br>
+</br>
+<svg width="500" height="500" id="graphcontainer"></svg>
+
+<!-- created this to enable a popup <div id="dible"> Click here to hide Selected Node popup</div> -->
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+// Add tooltip div
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 1e-6);
+
+var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+var simulation = d3.forceSimulation()
+    .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(200).strength(2.5))
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+d3.json("miserables.json", function(error, graph) {
+  if (error) throw error;
+
+  var link = svg.append("g")
+      .attr("class", "links")
+    .selectAll("line")
+    .data(graph.links)
+    .enter().append("line")
+      .attr("stroke-width", function(d) { return 2*Math.sqrt(d.value);});
+
+  var node = svg.append("g")
+      .attr("class", "nodes")
+    .selectAll("circle")
+    .data(graph.nodes)
+    .enter().append("circle")
+      //.attr("r", 12)
+    .attr("r", function(d) { 
+      if(d.Mainnode ==1)
+      {
+      	return 20;
+      }
+
+      else
+      {
+      	return 12;
+      }
+
+      })
+    .style("stroke", function(d)
+    {
+       if(d.Mainnode ==1)
+       {
+       	return "#000";
+       }
+       else
+       {
+       	return "none";
+       }   
+    })
+      .attr("fill", function(d) { return d.color;})
+      .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended))
+
+//adding code for the pop up on mouse on click events
+  node.on("click", function(d)
+  {
+
+    if(d.Mainnode!=1)
+    {
+
+  	div.transition()
+    .duration(300)
+    .style("opacity", 1);
+
+  var reward=d.reward;
+  var keys=d3.keys(reward);
+  var values=d3.values(reward);
+  var keylength=keys.length;
+  var left=[];
+  var right=[];
+  var id=d.id;
+
+  for(var i=0;i<keylength;i++)
+  {
+    var res=keys[i].split("_");     
+     if(!left.includes(res[0]))
+     {
+        left.push(res[0]);
+     }
+     if(!right.includes(res[1]))
+     {
+      right.push(res[1]);
+     }
+  }
+  
+  div
+  //.text("Info about " + d.name + ":" + d.info)
+  .html("<span class='close' id='clos' onclick='closepop()'>&times;</span> </br>"+ "<table border='0' cellspacing='0' cellpadding='2'> <tr> <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'>  </td>  <td align='center' style='border: 1px solid black;border-top: 2px solid black;border-left:2px solid black;'>" + right[0] +"</td>  <td align='center' style='border: 1px solid black;border-top: 2px solid black'>" + right[1] +" </td> </tr> <tr> <td align='center' style='border: 1px solid black;border-top: 2px solid black;border-left:2px solid black;'>"+ left[0] + "</td>  <td align='center' style='border: 1px solid black;border-top: 2px solid black;border-left:2px solid black;'>" + values[0] +"</td> <td align='center' style='border: 1px solid black'>" + values[1]+ "</td> </tr> <tr> <td align='center' style='border: 1px solid black;border-left:2px solid black;border-bottom:2px solid black;'>"+ left[1] + "</td> <td align='center' style='border: 1px solid black;border-bottom:2px solid black;'>"+ values[2] +"</td> <td align='center' style='border: 1px solid black;border-bottom:2px solid black;'>"+ values[3] +" </td> </table> </br>  Blue <input type='radio' id='blue' onclick='disable(\""+id+"\")'/>" + "&nbsp;&nbsp;&nbsp;" + " Red <input type='radio' id='red' onclick='disable1(\""+id+"\")'/>")
+  .style("left", (d3.event.pageX ) + "px")
+  .style("top", (d3.event.pageY) + "px");        
+  } 
+test(d.id);
+});
+      //.on("mouseover", mouseover)
+      //.on("mousemove", function(d){mousemove(d);})
+      //.on("mouseout", mouseout);  
+
+ //code for adding text inside the nodes
+
+  /* Actually in the code 
+  two pop up boxes are coming
+  so commenting this part to remove second pop up box
+   */
+  /*
+  node.append("title")
+    .text(function(d) { return d.id; });*/
+
+var label = svg.selectAll(".mytext")
+            .data(graph.nodes)
+            .enter()
+            .append("text")
+              .text(function (d) 
+              {
+              if(d.Mainnode ==1)
+              {
+              	return "You";
+              }
+              else
+              { 
+              	//return d.name;
+              }
+              })
+              .attr("x", 1)
+              .attr("dy", 11)
+              .style("text-anchor", "middle")
+              .style("fill", "#F8F8FF")
+              .style("font-family", "Arial")
+              .style("font-size", 15);
+  simulation
+      .nodes(graph.nodes)
+      .on("tick", ticked);
+
+  simulation.force("link")
+      .links(graph.links);
+
+  function ticked()
+  {
+    link
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+
+   label.attr("x", function(d){ return d.x; })
+           .attr("y", function (d) {return d.y - 10; });     
+  }
+});
+
+function dragstarted(d) {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+
+function dragended(d) {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+//Removed this code because need to implement when on node click but not on mouse over or mouse out
+/*
+function mouseover()
+{ 
+    div.transition()
+    .duration(300)
+    .style("opacity", 1);
+}*/
+
+/*
+function mousemove(d)
+{
+  var reward=d.reward;
+  var keys=d3.keys(reward);
+  var values=d3.values(reward);
+  var keylength=keys.length;
+  var left=[];
+  var right=[];
+  for(var i=0;i<keylength;i++)
+  {
+    var res=keys[i].split("_");     
+     if(!left.includes(res[0]))
+     {
+        left.push(res[0]);
+     }
+     if(!right.includes(res[1]))
+     {
+      right.push(res[1]);
+     }
+  }
+  
+  div
+  //.text("Info about " + d.name + ":" + d.info)
+  .html("<table border='0' cellspacing='0' cellpadding='2'> <tr> <td style='border-right:none;border-left:none;border-bottom:none;border-top:none'>  </td>  <td align='center' style='border: 1px solid black;border-top: 2px solid black;border-left:2px solid black;'>" + right[0] +"</td>  <td align='center' style='border: 1px solid black;border-top: 2px solid black'>" + right[1] +" </td> </tr> <tr> <td align='center' style='border: 1px solid black;border-top: 2px solid black;border-left:2px solid black;'>"+ left[0] + "</td>  <td align='center' style='border: 1px solid black;border-top: 2px solid black;border-left:2px solid black;'>" + values[0] +"</td> <td align='center' style='border: 1px solid black'>" + values[1]+ "</td> </tr> <tr> <td align='center' style='border: 1px solid black;border-left:2px solid black;border-bottom:2px solid black;'>"+ left[1] + "</td> <td align='center' style='border: 1px solid black;border-bottom:2px solid black;'>"+ values[2] +"</td> <td align='center' style='border: 1px solid black;border-bottom:2px solid black;'>"+ values[3] +" </td> </table> </br> Blue <input type='radio'/> &nbsp;&nbsp;&nbsp; Red <input type='radio'/>")
+  .style("left", (d3.event.pageX ) + "px")
+  .style("top", (d3.event.pageY) + "px");          
+}
+
+function mouseout()
+{
+  div.transition()
+  .duration(300)
+  .style("opacity", 1e-6);
+}*/
+
+//Remove the tool tip when clicked outside
+
+//code removed to disable the popup
+/*d3.select("#close").on("click",function(){
+	div.transition()
+  .duration(300)
+  .style("opacity", 1e-6);   
+});*/
+
+</script>
+</td>
+<td align="center" width="50%">
+	<video width="100%" controls>
+      <source src="cluster.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>	
+</td>
+</tr>
+</table>
+</table>
+</body>
+</html>

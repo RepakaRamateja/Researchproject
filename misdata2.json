@@ -1,0 +1,74 @@
+{
+  "nodes": [
+    {"id": "Myriel", "group": 1,"name": "A","color":"red"},
+    {"id": "Napoleon", "group": 1,"name":"B","color":"blue"},
+    {"id": "Mlle.Baptistine", "group":1,"name":"C","color":"blue"},
+    {"id": "Mme.Magloire", "group":1,"name":"D","color":"blue"},
+    {"id": "CountessdeLo", "group":1,"name":"E","color":"red"},
+    {"id": "Ramteja", "group": 1,"name":"E","color":"red"},
+
+    {"id": "Labarre1", "group": 1},
+    {"id": "Valjean1", "group": 1},
+    {"id": "Mme.deR1", "group": 1},
+    
+
+    {"id": "Labarre", "group": 2},
+    {"id": "Valjean", "group": 2},
+    {"id": "Isabeau", "group": 2},
+    {"id": "Gervais", "group": 2},
+    {"id": "Bamatabois","group": 2},
+    {"id": "akhil","group": 2},
+    {"id": "akhil1","group": 2},
+    {"id": "akhil2","group": 2},
+    {"id": "akhil3","group": 2},
+    {"id": "akhil4","group": 2}
+
+  ],
+  "links": [
+    {"source": "Myriel", "target": "CountessdeLo", "value": 1},
+    {"source": "Myriel", "target": "Mlle.Baptistine", "value": 1},
+    {"source": "Myriel", "target": "Napoleon", "value": 1},
+    {"source": "Myriel", "target": "Mme.Magloire", "value": 1},
+    {"source": "Myriel", "target": "Mme.Magloire", "value": 1},
+    {"source": "Myriel", "target": "Ramteja", "value": 1},
+    {"source": "Labarre1", "target": "Ramteja", "value": 1},
+    {"source": "Labarre1", "target": "Valjean1", "value": 1},
+    {"source": "Valjean1", "target": "Mme.deR1", "value": 1},
+    {"source": "CountessdeLo", "target": "Mme.deR1", "value": 1},
+    {"source": "Mme.Magloire", "target": "Ramteja", "value": 1},
+    {"source": "Napoleon", "target": "Mme.deR1", "value": 1},
+    {"source": "CountessdeLo", "target": "Mme.Magloire", "value": 1},
+    {"source": "CountessdeLo", "target": "Valjean1", "value": 1},
+    {"source": "Napoleon", "target": "CountessdeLo", "value": 1},
+    {"source": "Valjean", "target": "Mme.deR1", "value": 1},
+    {"source": "Labarre1", "target": "Mlle.Baptistine", "value": 1},
+    {"source": "Mlle.Baptistine", "target": "Ramteja", "value": 1},
+    {"source": "Labarre1", "target": "Mme.deR1", "value": 1},
+
+
+    {"source": "Labarre", "target": "Valjean", "value": 1},
+    {"source": "Mlle.Baptistine", "target": "Napoleon", "value": 1},
+    {"source": "Labarre", "target": "Isabeau", "value": 1},
+    {"source": "Bamatabois", "target": "Gervais", "value": 1},
+    {"source": "Labarre", "target": "akhil3", "value": 1},
+    {"source": "akhil", "target": "Labarre", "value": 1},   
+    {"source": "akhil", "target": "Isabeau", "value": 1}, 
+    {"source": "Valjean", "target": "Bamatabois", "value": 1},
+    {"source": "Valjean", "target": "akhil", "value": 1},
+    {"source": "Valjean", "target": "akhil3", "value": 1},
+    {"source": "akhil3", "target": "akhil1", "value": 1},
+    {"source": "akhil1", "target": "akhil2", "value": 1},
+    {"source": "akhil4", "target": "akhil2", "value": 1},
+    {"source": "Gervais", "target": "akhil4", "value": 1},
+    {"source": "akhil1", "target": "Valjean", "value": 1},
+    {"source": "akhil3", "target": "Gervais", "value": 1},
+    {"source": "Gervais", "target": "akhil2", "value": 1},
+    {"source": "Bamatabois", "target": "akhil2", "value": 1},
+    {"source": "akhil3", "target": "akhil4", "value": 1},
+    {"source": "Isabeau", "target": "akhil4", "value": 1},
+    {"source": "Isabeau", "target": "Valjean", "value": 1},
+    {"source": "akhil4", "target": "Bamatabois", "value": 1}
+
+    
+  ]
+}

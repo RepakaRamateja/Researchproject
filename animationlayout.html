@@ -1,0 +1,44 @@
+<html>
+<head>
+<style>
+#myVideo {   
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 75%;
+    min-height: 80%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover; 
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js">
+    </script>
+    <script type="text/javascript">
+
+      $(document).ready(function(){ 
+
+        $("#myVideo").get(0).play();
+
+       $("#myVideo").bind('ended', function(){
+          location.href="layout.html";   
+       }); 
+      });
+
+    
+
+    </script>
+</head>
+<body>
+<video id="myVideo">
+      <source src="cluster.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html>
