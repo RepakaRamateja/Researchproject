@@ -43,10 +43,12 @@ header {
     <h1>Wolf Game</h1>
   </header>
 
+<table border="0" width="100%" height="100%">
+ <tr>
+ <td width="50%"> 
   
 <article>
-  <h1>London</h1>
-  <svg width="860" height="425"></svg>
+  <svg width="860" height="525"></svg>
   <script src="http://d3js.org/d3.v4.min.js"></script>
   <script>
 
@@ -69,15 +71,26 @@ d3.json("mis1.json", function(error, graph) {
     .selectAll("line")
     .data(graph.links)
     .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+      .attr("stroke-width", function(d) { return 2*Math.sqrt(d.value); });
 
   var node = svg.append("g")
       .attr("class", "nodes")
     .selectAll("circle")
     .data(graph.nodes)
     .enter().append("circle")
-      .attr("r", 5)
-      .attr("fill", function(d) { return color(d.group); })
+      .attr("r", function(d) { 
+      if(d.Mainnode ==1)
+      {
+        return 10;
+      }
+
+      else
+      {
+        return 5;
+      }
+
+      })
+      .attr("fill", function(d) { return d.color;})
       .call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
@@ -126,6 +139,42 @@ function dragended(d) {
 </script>
 
 </article>
+</td>
+<td>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<h3> Lesson 1: Intro to Networks</h3>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<p>Now here are more friends who are connected to you and
+to each other. This is your immediate contact group.</p>
+<a href="intro2.html" style="text-decoration:none">Prev></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="finalintro.html" style="text-decoration:none">Next></a>
+</br>
+</td>
+</tr>
+</table>
 
 <footer>
     <h4>Copyright &copy;Syracuse University</h4>

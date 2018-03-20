@@ -1,6 +1,6 @@
 {
   "nodes": [
-    {"id": "Myriel", "group": 1},
+    {"id": "Myriel", "group": 1,"Mainnode":"1","color":"blue"},
     {"id": "Napoleon", "group": 1},
     {"id": "Mlle.Baptistine", "group": 1},
     {"id": "Mme.Magloire", "group": 1},

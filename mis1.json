@@ -1,7 +1,7 @@
 {
   "nodes": [
     {"id": "Myriel", "group": 1,"name": "A","color":"red"},
-    {"id": "Napoleon", "group": 1,"name":"B","color":"blue"},
+    {"id": "Napoleon", "group": 1,"name":"B","color":"blue","Mainnode":"1"},
     {"id": "Mlle.Baptistine", "group":1,"name":"C","color":"blue"},
     {"id": "Mme.Magloire", "group":1,"name":"D","color":"blue"},
     {"id": "CountessdeLo", "group":1,"name":"E","color":"red"},

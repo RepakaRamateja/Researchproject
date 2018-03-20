@@ -1,7 +1,7 @@
 {
   "nodes": [
     {"id": "Myriel", "group": 0,"name": "A","color":"red"},
-    {"id": "Napoleon", "group": 10,"name":"B","color":"blue"}
+    {"id": "Napoleon", "group": 10,"name":"B","color":"blue","Mainnode":"1"}
   ],
   "links": [
     {"source": "Myriel", "target": "Napoleon", "value": 1} 
