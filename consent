@@ -1,0 +1,45 @@
+<html>
+<head>
+
+</head>
+<body>
+<p>
+DEPARTMENT OF ELECTRICAL ENGINEERING AND COMPUTER SCIENCE
+
+4-206 Center for Science and Technology Syracuse, NY 13244
+
+(P) 315-443-2652
+
+Network Data Collection Game
+
+My name is Dr. Sucheta Soundarajan and I am a professor at Department of Electrical Engineering and Computer Science. I am inviting you to participate in a research study. Involvement in the study is voluntary, so you may choose to participate or not. This sheet will explain the study to you and please feel free to ask questions about the research if you have any. I will be happy to explain anything in detail if you wish.
+
+I am interested in learning more about interactions between a data collector and members of a social network. We consider that some of the members of this social network belong to a dark’ network, representing illegal or illicit activities, and so are adversarial against the data collector. In this study, we collect data to analyze what motivates members of a ‘dark’ network to report true/false information about other members of the social network. You will be assigned to one of the members of the dark network and asked to report data about your neighbors in the network. This will take approximately 1 hour of your time. All information will be kept anonymous. This means that your name will not appear anywhere and your specific answers will not be linked to your name in any way.
+
+If you decide to participate in the experiment, you will first participate in three simple experiments to understand the game. For correctly answered experiment, you will be paid $0.10 each. Otherwise you will be paid $0.10 for participating in the experiment. If you correctly answer all three experiments, then you can move to the second stage of the experiment. You will be paid $0.25 base payment for each experiment in this stage and you can participate up to 10 experiments. Based on your answers and data collector’s actions, each participant can get a maximum bonus of $0.30. At the time of the experiment, we will show how much bonus you can receive for each answer.
+
+The benefit of this research is that you will be helping us to understand how members of ‘dark’ networks report their data to a data collector. This information should help us to validate mathematical models of user behavior in an adversarial setting. Taking part in the research you may benefit by improving problem-solving and reasoning skills.
+
+The risk to you of participating in this study is that possible frustration over not providing the answer that would maximize your bonus. This risk will be minimized by providing you information about how data collector’s algorithm is working and also providing sufficient partial rewards for participation.
+
+If you do not want to take part, you have the right to refuse to take part, without penalty. If you decide to take part and later no longer wish to continue, you have the right to withdraw from the study at any time, without penalty.
+
+Contact Information:
+
+(NOTE: You must use this exact language regarding contact information-this paragraph should be edited to include contact information appropriate to your study.)
+
+If you have any questions, concerns, complaints about the research, contact the Dr. Sucheta Soundarajan at susounda@syr.edu. If you have any questions about your rights as a research participant, you have questions, concerns, or complaints that you wish to address to someone other than the investigator, if you cannot reach the investigator, contact the Syracuse University Institutional Review Board at 315-443-3013.
+
+All of my questions have been answered, I am 18 years of age or older, and I wish to participate in this research study. I have received a copy of this consent form.
+
+By clicking here I agree to participate in this research study. 
+</p
+
+
+<input type="checkbox" name="agree" value="agrees" id="Agree" onClick="redirect('layout.html)">
+
+
+
+
+</body>
+</html>
