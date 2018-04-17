@@ -1,0 +1,26 @@
+web service instructions
+
+
+first you need to start the web service and then it returns json at this
+
+path you can access this.
+ 
+//http://localhost:5000/todo/api/v1.0/tasks
+
+so use this as below in the code
+
+
+ d3.json("http://localhost:5000/todo/api/v1.0/tasks", function(error, response) 
+     {
+  if (error) 
+    {
+        throw error;
+    }
+else
+{
+console.log(jQuery.parseJSON(JSON.stringify(response.treeData)));
+console.log(Data);
+
+// this is your desired function where you can pass your json data
+BuildVerticaLTree(response.treeData, "#tree");
+}
